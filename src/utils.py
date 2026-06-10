@@ -247,8 +247,10 @@ def limpiar_nit(nit):
     # 2. Elimina los puntos de sin_guiones con .replace(".", "") y guarda
     #    el resultado en una variable llamada sin_puntos.
     # 3. Retorna sin_puntos.
-    pass
-
+    #pass
+    sin_guiones = nit.replace("-", "")
+    sin_puntos = sin_guiones.replace(".", "")
+    return sin_puntos
 
 def validar_nit(nit):
     """
@@ -276,8 +278,11 @@ def validar_nit(nit):
     # 3. Verifica que la longitud sea válida:
     #    longitud_valida = len(nit_limpio) >= 9 and len(nit_limpio) <= 10
     # 4. Retorna solo_digitos and longitud_valida.
-    pass
-
+    #pass
+    nit_limpio = limpiar_nit(nit)
+    solo_digitos = nit_limpio.isdigit()
+    longitud_valida = len(nit_limpio) >= 9 and len(nit_limpio) <= 10
+    return solo_digitos, longitud_valida
 
 def normalizar_texto(texto):
     """
@@ -327,8 +332,16 @@ def procesar_nit(nit):
     # 4. Si es_valido es False:
     #    mensaje = f"NIT {nit}: INVÁLIDO"
     # 5. Retorna mensaje.
-    pass
+    #
+    # pass
 
+    nit_limpio = limpiar_nit(nit)
+    es_valido = validar_nit(nit_limpio)
+    if es_valido == True:
+        mensaje = f"NIT {nit_limpio}: válido"
+    else:
+        mensaje = f"NIT {nit}: INVÁLIDO"
+    return mensaje    
 
 def pipeline_nit(nit):
     """
@@ -354,7 +367,7 @@ def pipeline_nit(nit):
     #    informe = f"NIT {nit} — rechazado: formato inválido"
     # 5. Retorna informe.
     pass
-
+    nit_limpio = limpiar_nit(nit)
 
 # ---------------------------------------------------------------------------
 # CONDICIONALES SIMPLES

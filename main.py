@@ -21,11 +21,11 @@ from src.utils import formatear_reporte_valor
 from src.utils import mostrar_resultado
 from src.utils import generar_ficha_contribuyente
 
-#from src.utils import limpiar_nit
-#from src.utils import validar_nit
-#from src.utils import normalizar_texto
-#from src.utils import procesar_nit
-#from src.utils import pipeline_nit
+from src.utils import limpiar_nit
+from src.utils import validar_nit
+from src.utils import normalizar_texto
+from src.utils import procesar_nit
+from src.utils import pipeline_nit
 
 from src.utils import esta_al_dia
 from src.utils import aplicar_descuento
@@ -101,10 +101,10 @@ def menu_encadenamiento():
     print("\n--- Encadenamiento de funciones ---")
 
     # TODO: descomenta cuando hayas completado limpiar_nit y validar_nit
-    # casos = ["900-123-456", "800.234.567", "ABC123", "123", "8001234560"]
-    # for nit in casos:
-    #     resultado = procesar_nit(nit)
-    #     print(f"  {resultado}")
+    casos = ["900-123-456", "800.234.567", "ABC123", "123", "8001234560"]
+    for nit in casos:
+        resultado = procesar_nit(nit)
+        print(f"  {resultado}")
 
     # TODO: descomenta cuando hayas completado pipeline_nit
     # print()
