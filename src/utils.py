@@ -98,9 +98,10 @@ def calcular_iva(valor_base, tasa=0.19):
     Args:
         valor_base (float): Monto antes de impuestos.
         tasa (float): Tasa de IVA. Por defecto 0.19 (19 %).
-
+        
     Returns:
         float: Valor del IVA.
+        
 
     Ejemplos:
         calcular_iva(1_000_000)        -> 190000.0
@@ -111,7 +112,10 @@ def calcular_iva(valor_base, tasa=0.19):
     # 1. Multiplica valor_base por tasa y guarda el resultado en una
     #    variable llamada iva.
     # 2. Retorna iva.
-    pass
+    #iva= valor_base * tasa
+    return valor_base * tasa    #iva
+        
+    #pass
 
 
 def formatear_reporte_valor(nit, nombre, valor, estado):
@@ -137,7 +141,9 @@ def formatear_reporte_valor(nit, nombre, valor, estado):
     #    (el :, dentro del f-string agrega separadores de miles al número)
     # 2. Guarda el resultado en una variable llamada linea.
     # 3. Retorna linea.
-    pass
+    #pass
+    linea= f"el NIT {nit} | el nombre empresa: {nombre} | el valor: ${valor:,}, el estado: {estado}"
+    return linea
 
 
 def mostrar_resultado(etiqueta, valor):
@@ -151,12 +157,14 @@ def mostrar_resultado(etiqueta, valor):
         etiqueta (str): Descripción del resultado.
         valor (float): Valor numérico a mostrar.
     """
+
     # TODO:
     # 1. Imprime usando print() y un f-string con este formato:
     #    "  {etiqueta}: ${valor:,.0f}"
     #    (el ,.0f formatea el número con separadores de miles y sin decimales)
     # Nota: este es un procedimiento, no retorna nada.
-    pass
+    #pass
+    print(f"{etiqueta}:${valor:,.0f}")
 
 
 def generar_ficha_contribuyente(nit, nombre, municipio, periodo, valor, estado):
@@ -198,8 +206,21 @@ def generar_ficha_contribuyente(nit, nombre, municipio, periodo, valor, estado):
     #    los caracteres de recuadro y los seis campos.
     #    Usa las variables intermedias del paso 1, 2 y 3.
     # 5. Retorna ficha.
-    pass
-
+    #pass
+    nombre_mayusculas = nombre.upper()
+    municipio_mayusculas = municipio.upper()
+    valor_formateado = f"${valor:,.0f}"
+    ficha= f''' ╔══════════════════════════════════════╗
+        ║  FICHA DE CONTRIBUYENTE              ║
+        ╠══════════════════════════════════════╣
+          NIT        : {nit}
+          Nombre     : {nombre_mayusculas}
+          Municipio  : {municipio_mayusculas}
+          Periodo    : {periodo}
+          Valor      : {valor_formateado}
+          Estado     : {estado}
+        ╚══════════════════════════════════════╝'''
+    return ficha
 
 # ---------------------------------------------------------------------------
 # ENCADENAMIENTO DE FUNCIONES
