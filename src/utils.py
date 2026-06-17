@@ -419,8 +419,12 @@ def aplicar_descuento(valor, pago_voluntario):
     #    - Retorna valor_con_descuento
     # 2. Si pago_voluntario es False:
     #    - Retorna valor sin modificar
-    pass
-
+    #pass
+    if  pago_voluntario == True:
+        descuento= valor * 0.1
+        valor_con_dexcuento = valor - descuento
+        return valor_con_dexcuento
+    return valor
 
 def asignar_prioridad(valor, tiene_historial_incumplimiento):
     """
@@ -446,8 +450,15 @@ def asignar_prioridad(valor, tiene_historial_incumplimiento):
     #    - si valor_alto AND tiene_historial: retorna "ALTA"
     #    - si valor_alto OR tiene_historial: retorna "MEDIA"
     #    - de lo contrario: retorna "BAJA"
-    pass
-
+    #pass
+    valor_alto = valor > 1_000_000
+    tiene_historial = tiene_historial_incumplimiento
+    if valor_alto and tiene_historial_incumplimiento:
+        return "ALTA"
+    elif valor_alto or tiene_historial_incumplimiento:
+        return "MEDIA"
+    else:
+        return "BAJA"
 
 # ---------------------------------------------------------------------------
 # CONDICIONALES ANIDADOS
@@ -474,8 +485,17 @@ def clasificar_mora(dias_mora, valor):
     #      retorna "Mora baja"
     # 2. else (no hay mora):
     #    retorna "Sin mora"
-    pass
-
+    #pass
+    #if estado == "ACTIVO":
+    #    if externo: dias_mora > 0
+    #    if interno: valor > 500_000
+    #    return "Mora alta"
+    #    else: 
+    #    valor <= 500_000
+    #    return "Mora baja"
+    #elif estado == "INACTIVO":
+    #    else: "no hay mora"
+    #    return "Sin mora"
 
 def determinar_tipo_seguimiento(estado, valor, municipio):
     """
