@@ -390,9 +390,11 @@ def esta_al_dia(dias_mora):
     """
     # TODO:
     # 1. Escribe un if/else:
-    #    - si dias_mora == 0: retorna True
-    #    - de lo contrario: retorna False
-    pass
+    if dias_mora == 0: 
+        return True
+    else: 
+        return False
+    #pass
 
 
 def aplicar_descuento(valor, pago_voluntario):
